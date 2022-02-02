@@ -16,6 +16,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 		}
 	}
 	private static class ConnectionsList implements Iterable{
+		//[YG] No iterator is required
 		private class ConnectionsListIterator implements Iterator{
 			Node currentNode = head;
 			
@@ -44,6 +45,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 				addHeadNode(newNode);
 			}	
 		}
+		//[YG] the method shouldn't be public
 		public void setNewHeadNode(Node currentNode) {
 			if (currentNode != tail) {
 				removeCenterNode(currentNode);
@@ -71,6 +73,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 			head = newNode;
 		}
 		@Override
+		//[YG] no need iterator
 		public Iterator iterator() {
 			return new ConnectionsListIterator();
 		}
