@@ -43,5 +43,8 @@ class ConnectionPoolTests {
 		assertNull(pool.getConnection(ID3));
 		assertEquals(conn, pool.getConnection(103));
 	}
-
+	/* V.R. I don't see how the head of the pool is tested. After addConnection()
+	 * and getConnection() the required connection becomes head. I mean
+	 * how to test this feature.
+	 */
 }

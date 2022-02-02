@@ -15,7 +15,9 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 			this.connection = c;
 		}
 	}
+	// V.R. Iterable isn't required
 	private static class ConnectionsList implements Iterable{
+		// V.R. Iterator isn't required, it is better to remove it
 		private class ConnectionsListIterator implements Iterator{
 			Node currentNode = head;
 			
@@ -36,6 +38,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 		Node head = null;
 		Node tail = null;
 
+		// V.R. The name addConnection is more suitable
 		private void addNode(Connection connection) {
 			Node newNode = new Node(connection);
 			if (head == null) {
@@ -44,6 +47,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 				addHeadNode(newNode);
 			}	
 		}
+		// Why public? What is tghe difference between addNode() and setNewHeadNode()
 		public void setNewHeadNode(Node currentNode) {
 			if (currentNode != tail) {
 				removeCenterNode(currentNode);
@@ -115,7 +119,7 @@ public class ConnectionsPoolImpl implements ConnectionsPool {
 		}
 		return currentConnection.connection;
 	}
-	
+	// V.R. Where this mdethod is called?
 	public int[] getConnectionsIdList() {
 		Iterator it = list.iterator();
 		int res[] = new int[mapConnections.size()];
